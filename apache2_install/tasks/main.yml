@@ -1,0 +1,16 @@
+---
+# tasks file for apache2_install
+
+
+---
+- name: Install Apache2
+  apt:
+    name: "{{ apache2_package }}"
+    state: present
+    update_cache: yes
+
+- name: Ensure Apache2 is running and enabled
+  service:
+    name: "{{ apache2_service }}"
+    state: started
+    enabled: yes
